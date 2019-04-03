@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+	<title>List</title>
+	<link rel="stylesheet" href="../../lib/tau/wearable/theme/default/tau.min.css">
+	<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)" href="../../lib/tau/wearable/theme/default/tau.circle.min.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	
+	<script>
+		function successCallback(position) {
+		    document.getElementById('locationInfo').innerHTML = '<br/>Latitude: ' + position.coords.latitude +
+		                                                        '<br/>Longitude: ' + position.coords.longitude;
+		   document.getElementById('gpsButton').innerHTML = 'Reload Position';
+		}
+		
+		function errorCallback(error) {
+		    var errorInfo = document.getElementById('locationInfo');
+		
+		    switch (error.code) {
+		        case error.PERMISSION_DENIED:
+		            errorInfo.innerHTML = 'User denied the request for Geolocation.';
+		            break;
+		        case error.POSITION_UNAVAILABLE:
+		            errorInfo.innerHTML = 'Location information is unavailable.';
+		            break;
+		        case error.TIMEOUT:
+		            errorInfo.innerHTML = 'The request to get user location timed out.';
+		            break;
+		        case error.UNKNOWN_ERROR:
+		            errorInfo.innerHTML = 'An unknown error occurred.';
+		            break;
+		    }
+		}
+		
+		function oneShotFunc() {
+		    if (navigator.geolocation) {
+		    		 document.getElementById('locationInfo').innerHTML = 'Loadind';
+		        navigator.geolocation.getCurrentPosition(successCallback, errorCallback,
+		                                                 {maximumAge: 60000});
+		        
+		    } else {
+		        document.getElementById('locationInfo').innerHTML = 'Geolocation is not supported.';
+		    }
+		}
+		
+	</script>
+</head>
+<body>
+	<div class="ui-page">
+		<div class="ui-content">
+			<p>THIS IS THE GPS</p>
+			<p>Position: <span id="locationInfo"><br/>Latitude: <br/>Longitude:</span></p>
+		</div>
+		<footer class="ui-footer ui-bottom-button ui-fixed">
+			<button id="gpsButton" class="ui-btn" onclick="oneShotFunc()">Get Position</button>
+		</footer>
+	</div>
+</body>
+<script type="text/javascript" src="../../lib/tau/wearable/js/tau.min.js"></script>
+
+</html>
+

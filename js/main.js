@@ -1,21 +1,19 @@
-
-window.onload = function () {
-    // TODO:: Do your initialization job
-
-    // add eventListener for tizenhwkey
-    document.addEventListener('tizenhwkey', function(e) {
-        if(e.keyName == "back")
-	try {
-	    tizen.application.getCurrentApplication().exit();
-	} catch (ignore) {
-	}
-    });
-
-    // Sample code
-    var textbox = document.querySelector('.contents');
-    textbox.addEventListener("click", function(){
-    	box = document.querySelector('#textbox');
-    	box.innerHTML = box.innerHTML == "Basic" ? "Sample" : "Basic";
-    });
-    
-};
+(function() {
+	/**
+	 * Back key event handler
+	 */
+	window.addEventListener('tizenhwkey', function(ev) {
+		if (ev.keyName === "back") {
+			var page = document.getElementsByClassName('ui-page-active')[0],
+				pageid = page ? page.id : "";
+			if (pageid === "main") {
+				try {
+					tizen.application.getCurrentApplication().exit();
+				} catch (ignore) {
+				}
+			} else {
+				window.history.back();
+			}
+		}
+	});
+}());

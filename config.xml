@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="https://github.com/ZishanAhmed93/tiZishan" version="1.0.0" viewmodes="maximized">
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="https://github.com/ZishanAhmed93/tiZishan" version="1.0.0" viewmodes="maximized">
     <tizen:application id="6crBrT4FKL.tiZishan" package="6crBrT4FKL" required_version="4.0"/>
     <author href="https://github.com/ZishanAhmed93" email="ZishanAhmed93@gmail.com">Zishan Ahmed</author>
     <content src="index.html"/>
@@ -9,5 +9,7 @@
     <feature name="http://tizen.org/feature/sensor.heart_rate_monitor"/>
     <icon src="icon.png"/>
     <name>tiZishan</name>
+    <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
+    <tizen:privilege name="http://tizen.org/privilege/location"/>
     <tizen:profile name="wearable"/>
 </widget>
