@@ -14,25 +14,101 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- <script src="js/main.js"></script> -->
+
 </head>
+<!--
+This coding project was a lot of fun, there are some really cool and powerful 
+features of Tizen Studio, and the TAU library.
+It was especially cool to use the Device Manager to instantly test the app on
+the galaxy watch.
+
+I hope you find this Index useful in your review
+     
+#######                                                    ### 
+   #    #    #   ##   #    # #    #    #   #  ####  #    # ### 
+   #    #    #  #  #  ##   # #   #      # #  #    # #    # ### 
+   #    ###### #    # # #  # ####        #   #    # #    #  #  
+   #    #    # ###### #  # # #  #        #   #    # #    #     
+   #    #    # #    # #   ## #   #       #   #    # #    # ### 
+   #    #    # #    # #    # #    #      #    ####   ####  ###     
+ 
+ -Zishan Ahmed
+-->
+
+<!-- Body Index by page ID 	-->
+<!-- -----------------------	-->
+<!-- 1. mainPage				-->
+<!-- 2. sensorListPage 		-->
+<!-- 3. hrmPage 				-->
+<!-- 4. gpsPage 				-->
+<!-- -----------------------	-->
+<!-- 5. js files 			-->
+<!-- -----------------------	-->
 
 <body>
-<body>
-   <div class="ui-page ui-page-active" id="main">
-      
-      <div class="ui-content">
-         <!--CONTENT-->
-    		<a href="contents/sensorList/index.html">
-    			<h2>tiZishan</h2>
-    			<h4>Zishan Ahmed</h4>
-    		</a>
-      </div>
-      
+	<!-- 1. mainPage 			-->
+	<!-- -----------------------	-->
+ 	<div class="ui-page ui-page-active" id="mainPage">
+    		<a href="#sensorListPage">
+      		<div class="ui-header">
+				<h2 class ="ui-tittle">tiZishan</h2>
+			</div>	
+      		<div class="ui-content">
+         		<h4>Zishan Ahmed</h4>
+      		</div>
+      	</a>
    </div>
+   <!-- -----------------------	-->
+   
+   
+   <!-- 2. sensorListPage  		-->
+   <!-- -----------------------	-->
+	<div class="ui-page" id="sensorListPage">
+		<div class="ui-header"><span class="ui-title">Sensor List</span></div>
+		<ul class="ui-content ui-listview">
+			<li><a href="#hrmPage" class="ui-btn" onclick="hrmInit()">HRM Sensor</a></li>
+			<li><a href="#gpsPage" class="ui-btn" onclick="gpsInit()">GPS Sensor</a></li>
+		</ul>
+	</div>
+	<!-- -----------------------	-->
+   
+   
+	<!-- 3. hrmPage  			-->
+	<!-- -----------------------	-->
+  	<div class="ui-page" id="hrmPage" data-enable-page-scroll="false">
+		<div class="ui-header"><span class="ui-title">HRM Sensor</span></div>
+		<div class="ui-content">
+			<p id="hrmLog">Heart Rate: </p>
+			<p id="hrmCheckSensor">Getting your heart rate...</p>
+		</div>
+		<div class="ui-footer ui-bottom-button ui-fixed">
+			<a id="hrmButton" class="ui-btn">Stop Monitor</a>
+		</div>
+		<progress class="ui-circle-progress" id="circleprogress" max="200" value="0">
+	</div>
+    <!-- -----------------------	-->
+   	
+   	
+   	<!-- 4. gps  				-->
+	<!-- -----------------------	-->
+   	<div class="ui-page" id="gpsPage" data-enable-page-scroll="false">
+		<div class="ui-header"><span class="ui-title">GPS Sensor</span></div>
+		<div class="ui-content">
+			<p id="gpsLog">Position</p> 
+		</div>
+		<div class="ui-footer ui-bottom-button ui-fixed">
+			<button id="gpsButton" class="ui-btn"">Get Position</button>
+		</div>
+	</div>
+	<!-- -----------------------	-->
 
-	 
-  <script type="text/javascript" src="lib/tau/wearable/js/tau.js"></script>  
-  <script type="text/javascript" src="js/circle-helper.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+
+	<!-- 5. js files 			-->
+	<script type="text/javascript" src="lib/tau/wearable/js/tau.js"></script>  
+	<script type="text/javascript" src="js/circle-helper.js"></script>
+	<script type="text/javascript" src="js/keyHandler.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<!-- -----------------------	-->
+	<!-- -----------------------	-->
 </body>
 </html>
